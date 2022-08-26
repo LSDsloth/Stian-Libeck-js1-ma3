@@ -10,14 +10,18 @@ async function apiCall() {
 
   const games = results.results;
 
+  resultsContainer.innerHTML = "";
+
   for (let i = 0; i < games.length; i++) {
     console.log(games[i].name + games[i].rating + games[i].tags.length);
 
-    resultsContainer.innerHTML += `<div class="result">${
-      games[i].name + games[i].rating + games[i].tags.length
-    }</div>`;
+    resultsContainer.innerHTML += `<div class="result"> 
+    <div class="gameName"> <h3>Name:</h3> <p>${games[i].name}</p> </div>
+    <div class="gameRating"> <h3>Rating:</h3> <p>${games[i].rating}</p> </div>
+    <div class="gameTags"> <h3>Tags:</h3> <p>${games[i].tags.length}</p> </div>
+    </div>`;
 
-    if (i === 8) {
+    if (i === 7) {
       break;
     }
   }
